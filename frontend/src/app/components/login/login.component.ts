@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     password: null
   };
 
+  public error = null;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -21,8 +23,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     return this.http.post('http://api.angular-auth.laravel/api/login', this.form).subscribe(
       data => console.log(data),
-      error => console.log(error)
+      error => this.handleError(error)
     );
+  }
+
+  handleError(error) {
+    this.error = error.error.error;
   }
 
 }
