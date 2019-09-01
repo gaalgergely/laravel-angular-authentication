@@ -29,12 +29,18 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Email or password doesn\'t exists.'], 401);
+            return response()->json(['error' => 'Email or password does\'t exists.'], 401);
         }
 
         return $this->respondWithToken($token);
     }
 
+    /**
+     * Sign up the User.
+     *
+     * @param SignUpRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function signup(SignUpRequest $request)
     {
         $user = User::create($request->all());
