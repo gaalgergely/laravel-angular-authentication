@@ -89,6 +89,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ng-snotify/styles/simple/simple.css",
               "src/styles.css"
             ],
             "scripts": []
