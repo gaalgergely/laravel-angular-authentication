@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {environment as env} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class TokenService {
 
   private iss = {
-    login: 'http://api.angular-auth.laravel/api/login',
-    signup: 'http://api.angular-auth.laravel/api/signup'
+    login: env.baseURL + 'login',
+    signup: env.baseURL + 'signup'
   };
 
   constructor() { }
